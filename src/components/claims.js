@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Typography, Paper } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 
@@ -28,8 +28,15 @@ function Claims() {
 
     return (
         <>
-            <Typography> Claims: {claims.length} </Typography>
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+            <Paper elevation={5} sx={{
+                width: "15%",
+                padding: "1rem",
+                textAlign: "center",
+                margin: "1rem"
+            }}>
+                <Typography> Total Claims: {claims.length} </Typography>
+            </Paper>
+            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} >
                 {claims.map((claim, index) => (
                     <>
                         <Grid item xs={2} sm={4} md={4} key={index}>
