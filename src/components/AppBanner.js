@@ -15,7 +15,7 @@ function AppBanner(props) {
         }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Claims Management System
+            J-card+: Zero-knowledge Identity using Iden3
           </Typography>
           <IconButton
             size="large"
