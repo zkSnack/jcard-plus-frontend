@@ -1,6 +1,6 @@
-import { Card, CardActions, CardContent, Button, Typography, CardHeader } from '@mui/material';
+import { Card, CardActions, CardContent, Button, Typography, CardHeader, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { blue, green } from '@mui/material/colors';
+import { blue, green, purple } from '@mui/material/colors';
 
 const ClaimCard = styled(Card)(({ theme }) => ({
   maxWidth: 500,
@@ -13,15 +13,30 @@ function Claim({claim, handleDelete}) {
   return (
     <ClaimCard sx={{ elevation: "3" }}>
       <CardHeader 
-        title={claim.DisplayName}
-        subheader={claim.Description}
+        title={claim.credentialType}
+        subheader={claim.id}
+        sx={{ backgroundColor: purple[400]}}
       />
       <CardContent>
-        <Typography gutterBottom variant="body2" sx={{ wordBreak: "break-word" }}> {`Issued By: ${claim.IssuerID} (${claim.IssuerDescription})`} </Typography>
-        <Typography gutterBottom variant="body2"> Index Slot A: {claim.Data[2]} </Typography>
-        <Typography gutterBottom variant="body2"> Index Slot B: {claim.Data[3]} </Typography>
-        <Typography gutterBottom variant="body2"> Value Slot A: {claim.Data[6]} </Typography>
-        <Typography gutterBottom variant="body2"> Value Slot B: {claim.Data[7]} </Typography>
+        <Typography gutterBottom variant="body2">
+          {/* Careful: Opening a URL in new page might introduce some vulnerability if attacker can manipulate schemaURL*/}
+          Schema URL: <a href={claim.schemaURL} target="blank">View Schema</a>
+        </Typography>
+        <Typography gutterBottom variant="body2"> {`Expiration: ${claim.expiration}`} </Typography>
+        <Typography gutterBottom variant="body2"> {`Updatable: ${claim.updatable}`} </Typography>
+        <Typography gutterBottom variant="body2"> {`Version: ${claim.version}`} </Typography>
+        <Typography gutterBottom variant="body2"> {`Revocation Nonce: ${claim.revocationNonce}`} </Typography>
+        <Typography gutterBottom variant="body2"> {`Revocation Status: ${claim.revocationStatus}`} </Typography>
+        <Paper>
+          <Typography gutterBottom variant="body1" sx={{
+            textAlign: "center",
+          }}> Claim Data: </Typography>
+          {Object.keys(claim.claimData).map((key, index) => {
+            return (
+              <Typography gutterBottom variant="body2"> {`${key}: ${claim.claimData[key]}`} </Typography>
+            )
+          })}
+        </Paper>
       </CardContent>
       <CardActions sx={{
         float: "right",

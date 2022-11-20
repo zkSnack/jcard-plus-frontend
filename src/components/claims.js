@@ -15,6 +15,11 @@ function Claims() {
                 method: 'GET',
                 mode: 'cors',
             });
+            // TODO: uncomment this to use the actual API
+            // const response = await fetch('http://localhost:8080/api/v1/getClaims', {
+            //     method: 'GET',
+            //     mode: 'cors',
+            // });
             const data = await response.json();
             console.log(data);
             setClaims(data.claims);
