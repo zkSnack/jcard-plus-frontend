@@ -5,6 +5,7 @@ import { blue, green, purple } from '@mui/material/colors';
 const ClaimCard = styled(Card)(({ theme }) => ({
   maxWidth: 500,
   backgroundColor: green[600],
+  color: "black",
 }));
 
 
@@ -27,7 +28,10 @@ function Claim({claim, handleDelete}) {
         <Typography gutterBottom variant="body2"> {`Version: ${claim.version}`} </Typography>
         <Typography gutterBottom variant="body2"> {`Revocation Nonce: ${claim.revocationNonce}`} </Typography>
         <Typography gutterBottom variant="body2"> {`Revocation Status: ${claim.revocationStatus}`} </Typography>
-        <Paper>
+        <Paper sx={{
+          backgroundColor: blue[400],
+          color: "black",
+        }}>
           <Typography gutterBottom variant="body1" sx={{
             textAlign: "center",
           }}> Claim Data: </Typography>
@@ -37,6 +41,10 @@ function Claim({claim, handleDelete}) {
             )
           })}
         </Paper>
+        <Typography gutterBottom variant="body2" sx={{
+          textAlign: "center",
+          color: "white",
+        }}> {`Issued By: ${claim.issuerID}`} </Typography>
       </CardContent>
       <CardActions sx={{
         float: "right",
