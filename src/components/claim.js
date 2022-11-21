@@ -1,10 +1,10 @@
 import { Card, CardActions, CardContent, Button, Typography, CardHeader, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { blue, green, purple } from '@mui/material/colors';
+import { blue, green, red } from '@mui/material/colors';
 
 const ClaimCard = styled(Card)(({ theme }) => ({
   maxWidth: 500,
-  backgroundColor: green[600],
+  backgroundColor: blue[200],
   color: "black",
 }));
 
@@ -16,7 +16,7 @@ function Claim({claim, handleDelete}) {
       <CardHeader 
         title={claim.credentialType}
         subheader={claim.id}
-        sx={{ backgroundColor: purple[400]}}
+        sx={{ backgroundColor: blue[400]}}
       />
       <CardContent>
         <Typography gutterBottom variant="body2">
@@ -43,14 +43,15 @@ function Claim({claim, handleDelete}) {
         </Paper>
         <Typography gutterBottom variant="body2" sx={{
           textAlign: "center",
-          color: "white",
+          color: red[600],
+          fontWeight: "bold",
         }}> {`Issued By: ${claim.issuerID}`} </Typography>
       </CardContent>
       <CardActions sx={{
         float: "right",
         padding: "1rem"
       }}>
-        <Button size="small" style={{ backgroundColor: blue[700], padding: "0.5rem"}} onClick={() => handleDelete(claim.id)}>Delete</Button>
+        <Button size="small" style={{ backgroundColor: green[500], padding: "0.5rem", color: "black"}} onClick={() => handleDelete(claim.id)}>Delete</Button>
       </CardActions>
     </ClaimCard>
   )

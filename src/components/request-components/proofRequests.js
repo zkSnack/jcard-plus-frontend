@@ -1,4 +1,4 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Button } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton } from '@mui/material';
 import { useState } from "react";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -28,12 +28,7 @@ const ExpandableTableRow = ({ children, expandComponent, ...otherProps }) => {
   );
 };
 
-function PendingRequests({rows}) {
-
-    function sendVerificationRequest(proofRequest) {
-        console.log("Sending Verification Request to:", proofRequest.proofRequestData.from)
-    }
-
+function ProofRequests({rows}) {
     console.log("Approved Proof Requests:", rows)
     return (
       <TableContainer component={Paper}>
@@ -50,22 +45,7 @@ function PendingRequests({rows}) {
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <ExpandableTableRow key={row.proofRequestData.id} expandComponent={
-                <TableCell colSpan={6}>
-                  <RequestInfoDetail proofRequest={row} />
-                  <div style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                  }}>
-                    <Button size="small" sx={{
-                      backgroundColor: "white",
-                      color: "black",
-                      margin: "1rem",
-                      padding: "0.5rem",
-                    }} onClick={() => sendVerificationRequest(row)}>Approve</Button>
-                  </div>
-                </TableCell>
-              } sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+              <ExpandableTableRow key={row.proofRequestData.id} expandComponent={<TableCell colSpan={6}><RequestInfoDetail proofRequest={row} /></TableCell>} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                 <TableCell component="th" scope="row">
                   {row.proofRequestData.from}
                 </TableCell>
@@ -81,4 +61,4 @@ function PendingRequests({rows}) {
     )
 }
 
-export default PendingRequests;
+export default ProofRequests;

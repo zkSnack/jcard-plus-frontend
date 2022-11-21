@@ -5,10 +5,14 @@ import { Table, TableBody, TableCell, TableContainer, TableRow, Paper } from '@m
 function AccountInfo() {
 
   const [accountInfo, setAccountInfo] = useState({})
-
+  
   useEffect(() => {
     async function getAccountInfo() {
-        const response = await fetch('http://localhost:8000/getAccountInfoResponse.json', {
+        // const response = await fetch('http://localhost:8000/getAccountInfoResponse.json', {
+        //     method: 'GET',
+        //     mode: 'cors',
+        // });
+        const response = await fetch('http://localhost:8080/api/v1/getAccountInfo', {
             method: 'GET',
             mode: 'cors',
         });
