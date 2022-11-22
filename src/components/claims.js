@@ -10,7 +10,6 @@ function Claims() {
 
     useEffect(() => {
         async function getClaims() {
-            console.log("Getting claims");
             // Use this for testing with a local file
             // const response = await fetch('http://localhost:8000/getClaimsResponse.json', {
             //     method: 'GET',
@@ -21,7 +20,6 @@ function Claims() {
                 mode: 'cors',
             });
             const data = await response.json();
-            console.log(data);
             setClaims(data.claims);
         }
         getClaims();

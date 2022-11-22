@@ -23,12 +23,10 @@ function QueryRequests() {
     }
 
     const handleClickOpenAddProofDialog = () => {
-        console.log("Open Add Proof Dialog Clicked");
         setOpenAddProofDialog(true);
     }
 
     const handleCloseAddProofDialog = () => {
-        console.log("Close Add Proof Dialog Clicked");
         setOpenAddProofDialog(false);
     }
 
@@ -48,7 +46,6 @@ function QueryRequests() {
         });
         data = await response.json();
         if (data.status === "success") {
-            console.log("Proof Request added successfully");
             setFetchRequests(!fetchRequests);
         } else {
             console.log("Proof Request failed to add");
@@ -68,7 +65,6 @@ function QueryRequests() {
                 mode: 'cors',
             });
             const data = await response.json();
-            console.log('Proof Response Data:', data);
             updateRequestList(data.proofRequests);
         }
         getProofRequests();
@@ -79,7 +75,6 @@ function QueryRequests() {
     }
 
     const requestForReload = () => {
-        console.log('Request for reload');
         setFetchRequests(!fetchRequests);
     }
 

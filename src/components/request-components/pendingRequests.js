@@ -46,7 +46,7 @@ function PendingRequests({rows, reload}) {
       setIsFailed(false);
     }
 
-    console.log("Pending Requests:", rows)
+
     const sendVerificationRequest = async (proofRequest) => {
       setOpen(true);
       setLoading(true);

@@ -6,7 +6,6 @@ function transfromProofReqData(queryData) {
   const transformedProofReqDataArr = [];
   for (let i = 0; i < queryData.length; i++) {
     let proofReqData = queryData[i].data;
-    console.log("Proof Req Data:", queryData[i])
     let transformedProofReqData = {};
     for (let data in proofReqData) {
       transformedProofReqData["field"] = data;
@@ -23,10 +22,8 @@ function transfromProofReqData(queryData) {
 }
 
 function RequestInfoDetail({proofRequest}) {
-  console.log("Request Info Detail:", proofRequest)
 
   const transformedProofReqDataArr = transfromProofReqData(proofRequest.queryData);
-  console.log("Transformed Proof Req Data:", transformedProofReqDataArr)
 
   return (
     <div className="request-info-detail">

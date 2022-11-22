@@ -17,7 +17,6 @@ function AccountInfo() {
             mode: 'cors',
         });
         const data = await response.json();
-        console.log('Account Info Data:', data);
         setAccountInfo(data);
     }
     getAccountInfo();
