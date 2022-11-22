@@ -1,0 +1,29 @@
+{
+  "proofRequests": [
+      {
+          "id": "4685b3a6-6251-4912-bf08-0fd6e101e53f",
+          "from": "1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ",
+          "to": "114PixKQ7fMHxeToEJF3935yijXh2GDAMWpGnU6Kpv",
+          "message": "Age is above 18",
+          "reason": "To do adult stuff",
+          "callbackURL": "http://localhost:9090/api/v1/callback?sessionId=5577006791947779410",
+          "status": "pending",
+          "timeStamp": "2022-11-21T17:00:37.247154-05:00",
+          "queryData": [
+              {
+                  "allowedIssuers": [
+                      "*"
+                  ],
+                  "schemaURL": "https://raw.githubusercontent.com/pratik1998/jcard-plus-schema-holder/master/claim-schemas/student-age.json-ld",
+                  "schemaHash": "2b817fa5b13b691fc589da71b1fa3516",
+                  "credentialType": "AgeCredential",
+                  "data": {
+                      "birthDay": {
+                          "$lt": 20100101
+                      }
+                  }
+              }
+          ]
+      }
+  ]
+}

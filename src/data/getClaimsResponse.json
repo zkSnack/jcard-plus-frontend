@@ -1,0 +1,100 @@
+{
+  "claims": [
+      {
+          "id": "55dd1a69-3dc5-4172-9ca2-d0053529b6bd",
+          "schemaURL": "https://raw.githubusercontent.com/pratik1998/jcard-plus-schema-holder/master/claim-schemas/student-age.json-ld",
+          "credentialType": "AgeCredential",
+          "expiration": "2023-11-20T13:07:00-05:00",
+          "updatable": false,
+          "version": 1,
+          "revocationNonce": 5577006791947779410,
+          "revocationStatus": false,
+          "issuerID": "11CKyrpd7TwRAcZKFobsU39XJUGp1JktNY1gQpg7MF",
+          "claimData": {
+              "birthDay": "20000302"
+          },
+          "claimRawData": [
+              "1461501640763249879714861642899586829985395999019",
+              "104327326937913865244818494372715249460894113355985787901152134792827502592",
+              "20000302",
+              "0",
+              "31368755080133646143532629330",
+              "0",
+              "0",
+              "0"
+          ]
+      },
+      {
+        "id": "55dd1a69-3dc5-4172-9ca2-d0053529b6bd",
+        "schemaURL": "https://raw.githubusercontent.com/pratik1998/jcard-plus-schema-holder/master/claim-schemas/student-age.json-ld",
+        "credentialType": "AgeCredential",
+        "expiration": "2023-11-20T13:07:00-05:00",
+        "updatable": false,
+        "version": 1,
+        "revocationNonce": 5577006791947779410,
+        "revocationStatus": false,
+        "issuerID": "11CKyrpd7TwRAcZKFobsU39XJUGp1JktNY1gQpg7MF",
+        "claimData": {
+            "birthDay": "20000302"
+        },
+        "claimRawData": [
+            "1461501640763249879714861642899586829985395999019",
+            "104327326937913865244818494372715249460894113355985787901152134792827502592",
+            "20000302",
+            "0",
+            "31368755080133646143532629330",
+            "0",
+            "0",
+            "0"
+        ]
+    },
+    {
+      "id": "55dd1a69-3dc5-4172-9ca2-d0053529b6bd",
+      "schemaURL": "https://raw.githubusercontent.com/pratik1998/jcard-plus-schema-holder/master/claim-schemas/student-age.json-ld",
+      "credentialType": "AgeCredential",
+      "expiration": "2023-11-20T13:07:00-05:00",
+      "updatable": false,
+      "version": 1,
+      "revocationNonce": 5577006791947779410,
+      "revocationStatus": false,
+      "issuerID": "11CKyrpd7TwRAcZKFobsU39XJUGp1JktNY1gQpg7MF",
+      "claimData": {
+          "birthDay": "20000302"
+      },
+      "claimRawData": [
+          "1461501640763249879714861642899586829985395999019",
+          "104327326937913865244818494372715249460894113355985787901152134792827502592",
+          "20000302",
+          "0",
+          "31368755080133646143532629330",
+          "0",
+          "0",
+          "0"
+      ]
+    },
+    {
+      "id": "55dd1a69-3dc5-4172-9ca2-d0053529b6bd",
+      "schemaURL": "https://raw.githubusercontent.com/pratik1998/jcard-plus-schema-holder/master/claim-schemas/student-age.json-ld",
+      "credentialType": "AgeCredential",
+      "expiration": "2023-11-20T13:07:00-05:00",
+      "updatable": false,
+      "version": 1,
+      "revocationNonce": 5577006791947779410,
+      "revocationStatus": false,
+      "issuerID": "11CKyrpd7TwRAcZKFobsU39XJUGp1JktNY1gQpg7MF",
+      "claimData": {
+          "birthDay": "20000302"
+      },
+      "claimRawData": [
+          "1461501640763249879714861642899586829985395999019",
+          "104327326937913865244818494372715249460894113355985787901152134792827502592",
+          "20000302",
+          "0",
+          "31368755080133646143532629330",
+          "0",
+          "0",
+          "0"
+      ]
+  }
+  ]
+}
