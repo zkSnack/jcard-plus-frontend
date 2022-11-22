@@ -107,7 +107,7 @@ function QueryRequests() {
                 <TabPanel value="approved">
                     <ProofRequests rows={completedRequests}/>
                 </TabPanel>
-                <TabPanel value="declined">DeclinedRequests</TabPanel>
+                <TabPanel value="declined">Currently not supported. Coming Soon!!</TabPanel>
             </TabContext>
         </Box>
     )

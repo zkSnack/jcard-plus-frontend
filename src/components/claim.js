@@ -1,6 +1,6 @@
-import { Card, CardActions, CardContent, Button, Typography, CardHeader, Paper } from '@mui/material';
+import { Card, CardContent, Typography, CardHeader, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { blue, green, red } from '@mui/material/colors';
+import { blue, red } from '@mui/material/colors';
 
 const ClaimCard = styled(Card)(({ theme }) => ({
   maxWidth: 500,
@@ -47,12 +47,13 @@ function Claim({claim, handleDelete}) {
           fontWeight: "bold",
         }}> {`Issued By: ${claim.issuerID}`} </Typography>
       </CardContent>
-      <CardActions sx={{
+      {/* TO-DO: Support deletion of claims */}
+      {/* <CardActions sx={{
         float: "right",
         padding: "1rem"
       }}>
         <Button size="small" style={{ backgroundColor: green[500], padding: "0.5rem", color: "black"}} onClick={() => handleDelete(claim.id)}>Delete</Button>
-      </CardActions>
+      </CardActions> */}
     </ClaimCard>
   )
 }

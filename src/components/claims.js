@@ -11,25 +11,21 @@ function Claims() {
     useEffect(() => {
         async function getClaims() {
             console.log("Getting claims");
-            const response = await fetch('http://localhost:8000/getClaimsResponse.json', {
-                method: 'GET',
-                mode: 'cors',
-            });
-            // TODO: uncomment this to use the actual API
-            // const response = await fetch('http://localhost:8080/api/v1/getClaims', {
+            // Use this for testing with a local file
+            // const response = await fetch('http://localhost:8000/getClaimsResponse.json', {
             //     method: 'GET',
             //     mode: 'cors',
             // });
+            const response = await fetch('http://localhost:8080/api/v1/getClaims', {
+                method: 'GET',
+                mode: 'cors',
+            });
             const data = await response.json();
             console.log(data);
             setClaims(data.claims);
         }
         getClaims();
     }, [])
-
-    function deleteClaim(id) {
-        console.log("Deleting claim with ID: " + id);
-    }
 
     return (
         <>
@@ -45,7 +41,7 @@ function Claims() {
                 {claims.map((claim, index) => (
                     <>
                         <Grid item xs={2} sm={4} md={4} key={index}>
-                            <Claim key={index} claim={claim} handleDelete={deleteClaim}/>
+                            <Claim key={index} claim={claim}/>
                         </Grid>
                     </>
                 ))}
