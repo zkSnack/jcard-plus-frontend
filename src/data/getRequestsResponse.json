@@ -1,82 +1,29 @@
 {
-  "requests" : [
-    {
-      "proofRequestData": {
-        "id": "2475fd67-a10e-4ec7-9357-920c2d950196",
-        "typ": "application/iden3comm-plain-json",
-        "type": "https://iden3-communication.io/authorization/1.0/request",
-        "thid": "2475fd67-a10e-4ec7-9357-920c2d950196",
-        "body": {
-          "callbackUrl": "http://localhost:9090/api/v1/callback?sessionId=5577006791947779410",
-          "reason": "To do adult stuff",
+  "proofRequests": [
+      {
+          "id": "4685b3a6-6251-4912-bf08-0fd6e101e53f",
+          "from": "1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ",
+          "to": "114PixKQ7fMHxeToEJF3935yijXh2GDAMWpGnU6Kpv",
           "message": "Age is above 18",
-          "scope": [
-            {
-              "id": 1,
-              "circuit_id": "credentialAtomicQuerySig",
-              "rules": {
-                "query": {
-                  "allowedIssuers": [
-                    "*"
-                  ],
-                  "req": {
-                    "birthDay": {
-                      "$lt": 20100101
-                    }
-                  },
-                  "schema": {
-                    "type": "AgeCredential",
-                    "url": "https://raw.githubusercontent.com/pratik1998/jcard-plus-schema-holder/master/claim-schemas/student-age.json-ld"
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "from": "1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ",
-        "to": "114PixKQ7fMHxeToEJF3935yijXh2GDAMWpGnU6Kpv"
-      },
-      "status": "pending",
-      "timeStamp": "2022-11-21T03:31:20.603257-05:00"
-    },
-    {
-      "proofRequestData": {
-        "id": "2475fd67-a10e-4ec7-9357-920c2d950196",
-        "typ": "application/iden3comm-plain-json",
-        "type": "https://iden3-communication.io/authorization/1.0/request",
-        "thid": "2475fd67-a10e-4ec7-9357-920c2d950196",
-        "body": {
-          "callbackUrl": "http://localhost:9090/api/v1/callback?sessionId=5577006791947779410",
           "reason": "To do adult stuff",
-          "message": "Age is above 18",
-          "scope": [
-            {
-              "id": 1,
-              "circuit_id": "credentialAtomicQuerySig",
-              "rules": {
-                "query": {
+          "callbackURL": "http://localhost:9090/api/v1/callback?sessionId=5577006791947779410",
+          "status": "pending",
+          "timeStamp": "2022-11-21T17:00:37.247154-05:00",
+          "queryData": [
+              {
                   "allowedIssuers": [
-                    "*"
+                      "*"
                   ],
-                  "req": {
-                    "birthDay": {
-                      "$lt": 20100101
-                    }
-                  },
-                  "schema": {
-                    "type": "AgeCredential",
-                    "url": "https://raw.githubusercontent.com/pratik1998/jcard-plus-schema-holder/master/claim-schemas/student-age.json-ld"
+                  "schemaURL": "https://raw.githubusercontent.com/pratik1998/jcard-plus-schema-holder/master/claim-schemas/student-age.json-ld",
+                  "schemaHash": "2b817fa5b13b691fc589da71b1fa3516",
+                  "credentialType": "AgeCredential",
+                  "data": {
+                      "birthDay": {
+                          "$lt": 20100101
+                      }
                   }
-                }
               }
-            }
           ]
-        },
-        "from": "1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ",
-        "to": "114PixKQ7fMHxeToEJF3935yijXh2GDAMWpGnU6Kpv"
-      },
-      "status": "accepted",
-      "timeStamp": "2022-11-21T03:31:20.603257-05:00"
-    }
+      }
   ]
 }

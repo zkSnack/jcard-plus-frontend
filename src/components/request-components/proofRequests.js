@@ -36,22 +36,24 @@ function ProofRequests({rows}) {
           <TableHead>
             <TableRow>
               <TableCell padding="checkbox"/>
-              <TableCell>Sender</TableCell>
+              <TableCell align="center">ID</TableCell>
+              <TableCell align="center">Sender</TableCell>
               <TableCell align="center">Receiver</TableCell>
-              <TableCell align="center">Claim Hash</TableCell>
-              <TableCell align="center">Credential Type</TableCell>
               <TableCell align="center">Time</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <ExpandableTableRow key={row.proofRequestData.id} expandComponent={<TableCell colSpan={6}><RequestInfoDetail proofRequest={row} /></TableCell>} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                <TableCell component="th" scope="row">
-                  {row.proofRequestData.from}
+            {rows?.map((row) => (
+              <ExpandableTableRow key={row.id} expandComponent={
+                <TableCell colSpan={4}>
+                  <RequestInfoDetail proofRequest={row} />
                 </TableCell>
-                <TableCell align="center">{row.proofRequestData.to}</TableCell>
-                <TableCell align="center">{row.proofRequestData.thid}</TableCell>
-                <TableCell align="center">Age Credential</TableCell>
+              } sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                <TableCell component="th" scope="row">
+                  {row.id}
+                </TableCell>
+                <TableCell align="center">{row.to}</TableCell>
+                <TableCell align="center">{row.from}</TableCell>
                 <TableCell align="center">{row.timeStamp}</TableCell>
               </ExpandableTableRow>
             ))}
