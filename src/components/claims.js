@@ -20,7 +20,9 @@ function Claims() {
                 mode: 'cors',
             });
             const data = await response.json();
-            setClaims(data.claims);
+            if (data.hasOwnProperty('claims')) {
+                setClaims(data.claims || []); // if data.claims is null, set it to an empty array
+            }
         }
         getClaims();
     }, [])
