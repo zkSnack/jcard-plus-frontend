@@ -34,17 +34,12 @@ function QueryRequests() {
     const handleAddProofDialog = async (url) => {
         setOpenAddProofDialog(false);
         setOpenBackToPendingDialog(true);
-        let response = await fetch(url, {
-            method: 'GET',
-            mode: 'cors',
-        });
-        let data = await response.json();
-        response = await fetch('http://localhost:8080/api/v1/addProofRequest', {
+        let response = await fetch('http://localhost:8080/api/v1/addProofRequest', {
             method: 'POST',
             mode: 'cors',
-            body: JSON.stringify(data),
+            body: JSON.stringify(url),
         });
-        data = await response.json();
+        let data = await response.json();
         if (data.status === "success") {
             setFetchRequests(!fetchRequests);
         } else {
@@ -86,7 +81,7 @@ function QueryRequests() {
             >
                 <CircularProgress color="inherit" />
             </Backdrop>
-            <Button variant="outlined" onClick={handleClickOpenAddProofDialog}>Add Proof Request</Button>  
+            <Button variant="outlined" onClick={handleClickOpenAddProofDialog}>Add Proof Request</Button>
             <AddProofDialog open={openAddProofDialog} handleClose={handleCloseAddProofDialog} handleAdd={handleAddProofDialog}/>
             <TabContext value={currentTabState}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
