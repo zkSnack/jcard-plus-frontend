@@ -1,15 +1,20 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Avatar, List, ListItem, ListItemAvatar, ListItemText, ListItemButton } from '@mui/material';
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, Button } from '@mui/material'
+import { Avatar, List, ListItem, ListItemAvatar, ListItemText, ListItemButton, FormControl, Typography } from '@mui/material';
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, Button, Box } from '@mui/material'
 import PersonIcon from '@mui/icons-material/Person';
 import AddIcon from '@mui/icons-material/Add';
 import { blue } from '@mui/material/colors';
 
-const issuerURLs = ['localhost:8090'];
+// TODO: Fetch data from backend or atleast don't hardcode token into the code
+const issuerURLs = [{
+  url: 'localhost:8090',
+  token: 'fe7d9c51-5dcf-46dd-8bbc-ae9a0b716ee3'
+}]
 
 function AddClaimDialog({onClose, open, onSelect}) {
   const [issuerURL, setIssuerURL] = useState('');
+  const [issuerToken, setIssuerToken] = useState('');
   const [addIssuerOpen, setAddIssuerOpen] = useState(false);
 
   const handleListItemClick = (value) => {
@@ -21,8 +26,13 @@ function AddClaimDialog({onClose, open, onSelect}) {
 
   // TODO: Check if issuerURL is valid and already exists in issuerURLs or not
   const addIssuerURL = () => {
-    issuerURLs.push(issuerURL);
+    const issuerData = {
+      url: issuerURL,
+      token: issuerToken,
+    };
+    issuerURLs.push(issuerData);
     setIssuerURL('');
+    setIssuerToken('');
     setAddIssuerOpen(false);
   };
 
@@ -34,10 +44,6 @@ function AddClaimDialog({onClose, open, onSelect}) {
     setAddIssuerOpen(false);
   };
 
-  const handleUrlChange = (event) => {
-    setIssuerURL(event.target.value);
-  };
-
   return (
     <>
       <Dialog onClose={() => onClose()} open={open}>
@@ -46,18 +52,23 @@ function AddClaimDialog({onClose, open, onSelect}) {
         }}>Select Claim Issuer</DialogTitle>
         <List sx={{ pt: 0 }}>
           {issuerURLs.map((issuerURL) => (
-            <ListItem key={issuerURL}>
+            <ListItem key={issuerURL.token}>
               <ListItemButton onClick={() => handleListItemClick(issuerURL)}>
                 <ListItemAvatar>
                   <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
                     <PersonIcon />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary={issuerURL} />
+                <ListItemText primary={
+                  <>
+                    <Typography variant='body1'>{issuerURL.url}</Typography>
+                    <Typography variant='body2'>{issuerURL.token}</Typography>
+                  </>
+                } />
               </ListItemButton>
             </ListItem>
           ))}
-          <ListItem onClick={() => addIssuer()}>
+          <ListItem key="add-issuer-button" onClick={() => addIssuer()}>
             <ListItemButton>
               <ListItemAvatar>
                 <Avatar>
@@ -75,16 +86,36 @@ function AddClaimDialog({onClose, open, onSelect}) {
           <DialogContentText>
             Please enter the URL of the issuer you would like to add without http/https(e.g. localhost:8090)
           </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="issuerURL"
-            label="Issuer URL"
-            type="url"
-            fullWidth
-            variant="standard"
-            onChange={handleUrlChange}
-          />
+          <Box
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 2 },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <FormControl variant="standard">
+              <TextField
+                autoFocus
+                margin="dense"
+                id="issuerURL"
+                label="Issuer URL"
+                type="url"
+                variant="standard"
+                onChange={(event) => setIssuerURL(event.target.value)}
+              />
+            </FormControl>
+            <FormControl variant="standard">
+              <TextField
+                autoFocus
+                margin="dense"
+                id="issuerToken"
+                label="Auth Token"
+                variant="standard"
+                onChange={(event) => setIssuerToken(event.target.value)}
+              />
+            </FormControl>
+          </Box>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleAddIssuerClose}>Cancel</Button>

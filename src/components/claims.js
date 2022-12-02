@@ -12,7 +12,9 @@ function Claims() {
     const [reload, setReload] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const getClaimsByIssuer = async (issuerURL) => {
+    const getClaimsByIssuer = async (issuerData) => {
+        const issuerURL = issuerData.url;
+        const authToken = issuerData.token;
         if(issuerURL) {
             setLoading(true);
             let protocol = 'https://';
@@ -23,7 +25,8 @@ function Claims() {
                 protocol = 'http://';
             }
             const body = {
-                issuerURL: protocol + issuerURL
+                issuerURL: protocol + issuerURL,
+                authToken: authToken,
             };
             try {
                 // Use this for testing with a local file
